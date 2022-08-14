@@ -1,5 +1,79 @@
 body {
-    margin: 0;
-    background: pink;
+    display: flex;
+    flex-direction: column;
+    min-height: 95vh;
+    margin:0;
+}
+.main-header {
+    display:flex;
+    justify-content: space-between;
+    background-color: rgb(64, 203, 231);
+    margin:0px;
+    padding-left: 20px;
+    padding-right: 40px;
+}
+
+.menu {
+    display:flex;
+    flex:0.3;
+    align-items: flex-start;
+    justify-content: space-around;
+    list-style-type: none;
+    
+    
+}
+
+.banner {
+    
+    justify-content: center;
+    background-color: rgb(236, 235, 248);
+    display: inline-flex;
+    line-height: 150px;
+    
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto 2rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    flex: 0 50%;
+    
+}
+
+.col {
+    display: flex;
+    justify-content: center;
+}
+
+.box {
     text-align: center;
+
+    margin: 1px 10px 1rem;
+    padding: 10px 200px 7rem;
+    background-color: gray;
+}
+.main-section {
+    flex:1;
+}
+
+.main-footer {
+    align-self: center;
+}
+
+.main-footer {
+    margin: 10px 10px;
+    padding: 10px 10px 1rem;
+    background-color: rgb(163, 213, 223);;
+}
+
+@media screen and (min-width: 1200px) {
+    .col {
+        display: flex;
+        width:1200px;
+    }
 }
