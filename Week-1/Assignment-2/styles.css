@@ -75,4 +75,25 @@ body {
         display: flex;
         width:1200px;
     }
+}    
+@media screen and (max-width: 739px) {
+    body {
+        align-content: center;
+        margin:0px;
+    }
+    .menu{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .col {
+        flex-wrap:wrap;
+        display: flex;
+        width:300px;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+    }
 }
