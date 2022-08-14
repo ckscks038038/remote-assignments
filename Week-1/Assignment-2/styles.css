@@ -42,17 +42,19 @@ body {
     display: flex;
     flex-direction: column;
     flex: 0 50%;
-    
+    align-items: center; 
 }
 
 .col {
     display: flex;
     justify-content: center;
+    align-items: center; 
+
 }
 
 .box {
     text-align: center;
-
+    align-items: center; 
     margin: 1px 10px 1rem;
     padding: 10px 200px 7rem;
     background-color: gray;
@@ -63,9 +65,6 @@ body {
 
 .main-footer {
     align-self: center;
-}
-
-.main-footer {
     margin: 10px 10px;
     padding: 10px 10px 1rem;
     background-color: rgb(163, 213, 223);;
