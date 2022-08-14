@@ -89,8 +89,8 @@ body {
     }
     .menu{
         display: flex;
-        flex-wrap: wrap;
         justify-content: space-around;
+        flex-basis:100px
     }
     .col {
         flex-wrap:wrap;
