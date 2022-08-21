@@ -13,4 +13,7 @@ callAction.addEventListener("click", () => {
   if (hidden.style.display === "none") {
     hidden.style.display = "flex"
   }
+  let fullPageHeight = document.body.clientHeight
+  let btnHiddenHeight = hidden.getBoundingClientRect().top
+  scrollBy(0, fullPageHeight - btnHiddenHeight)
 })
