@@ -10,12 +10,13 @@ app.get("/", (req, res) => {
 })
 
 // Assignment-2: do culculation of sum
-app.get("/getData", (req, res) => {
+app.get("/data", (req, res) => {
   const stringOfNum = req.query.number
-  const number = Number(stringOfNum)
-  if (!number) {
+  const number = Number(stringOfNum) // set string type into number
+  if (!stringOfNum) {
     res.send("Lack of Parameter")
-  } else if (!number || number <= 0) {
+  }
+  else if (!Number.isInteger(number) || number <= 0) {
     res.send("Wrong Parameter")
   } else {
     let sum = ((1 + number) * number) / 2
