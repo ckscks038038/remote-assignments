@@ -1,16 +1,31 @@
 const express = require("express")
-const mysql = require("mysql")
+const mysql = require("mysql2")
+const dotenv = require("dotenv")
+const path = require("path")
+const cookieparser = require("cookie-parser")
 
+dotenv.config({ path: "./.env" })
+const app = express()
 // Create connection
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Yy507145235!!",
-  port: "3000",
-  database: "nodemysql",
+  host: process.env.DATABASE_HOST,
+  user: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASSWORD,
+  database: process.env.DATABASE,
 })
 
-const app = express()
+const publicDirectory = path.join(__dirname, "./public")
+app.use(express.static(publicDirectory))
+
+//Pasre URL-encoded bodies (as sent by HTML forms)
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+app.use(cookieparser())
+app.set("view engine", "hbs")
+
+//Define Routes
+app.use("/", require("./routes/pages"))
+app.use("/auth", require("./routes/auth"))
 
 // Connect
 db.connect((err) => {
@@ -20,29 +35,6 @@ db.connect((err) => {
   console.log("Connected to the MySQL server.")
 })
 
-// Create DB
-app.get("/createdb", (req, res) => {
-  let sql = "CREATE DATABASE nodemysql"
-  db.query(sql, (err, result) => {
-    console.log(result)
-    if (err) {
-      console.log(err)
-      throw err
-    }
-    res.send("Database created...")
-  })
-})
-// // Create Table
-// app.get("/createpoststable", (req, res) => {
-//   let sql =
-//     "CREATE TABLE posts(id int AUTO_INCREMENT, title VARCHAR(255), body VARCHAR(255), PRIMARY KEY(id))"
-//   db.query(sql, (err, result) => {
-//     if (err) throw err
-//     console.log(result)
-//     res.send("Post table created...")
-//   })
-// })
-
 app.listen("3000", () => {
-  console.log("Sever started on port 3000")
+  console.log("Server started on port 3000")
 })
