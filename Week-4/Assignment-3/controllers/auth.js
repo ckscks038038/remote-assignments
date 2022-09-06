@@ -29,7 +29,7 @@ exports.login = async (req, res) => {
         // if we can't find a corresponding user in the database
         // or the password is wrong
         if (
-          !results ||
+          !results[0] ||
           !(await bcrypt.compare(password, results[0].password))
         ) {
           // 401: forbidden
